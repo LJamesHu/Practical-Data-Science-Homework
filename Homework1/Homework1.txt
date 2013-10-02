@@ -1,0 +1,27 @@
+Homework 1 [PDS Fall 2013]
+
+Practical Data Science, Fall 2013
+
+Homework 1: Preliminary exercises in Data Science
+
+Familiarity with Programming
+
+    1. Read Learn Python the Hard Way in detail, going through all the activities and exercises. Note that we’re using the using a slightly different setup than described in LPtHW, namely a terminal and Anaconda python. The suggested notepad applications (notepad++ and textwrangler) are both applicable, however, many prefer Sublime Text 2, or simply using ipython notebooks.
+
+    2. Review Python Data Structures. Duplicate work with in your own Ipython notebook!
+
+Modeling Example
+
+Try to code this example (everything after source) using nearest neighbors to try and classify examples correctly on the standard iris dataset in an Ipython notebook. An explanation of the data is here. Try to modify the number of nearest neighbors considered and note how the regions change.
+
+Income Prediction 1.
+
+    1. Download marketing.data located here. This data set is described here.
+
+    2. How many lines are in the file? Hint: use the wc unix utility.
+
+    3. Notice that many lines have some fields unavailable (NA). Remove any lines without complete data. Hint: use the grep unix utility. How many lines remain?
+
+    4. The fifth column corresponds to education level. What is the most common education level?
+
+    5. What is the income distribution for households with some graduate school? (hint: use a python dict data structure to store income level counts)

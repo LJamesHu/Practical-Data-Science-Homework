@@ -1,0 +1,96 @@
+Homework 1 [PDS Fall 2013]
+
+Practical Data Science, Fall 2013
+
+Homework 1: Preliminary exercises in Data Science
+
+
+Modeling Example
+
+Try to code this example (everything after source) using nearest neighbors to try and classify examples correctly on the standard iris dataset in an Ipython notebook. An explanation of the data is here. Try to modify the number of nearest neighbors considered and note how the regions change.
+
+	# Using array and for loop to vary nearest neighbors
+	mn_n = [15,10,20,30,100,200,1000]
+
+	for n in mn_n:
+		n_neighbors = n
+
+		# Original code
+		# n_neighbors = 15
+
+	Distance remains fairly similar, with slight deviations at all stages.
+
+	Uniform remains fairly similar until it hits 100, 200 and 100. At 100, the green section becomes larger, at 200 and 1000, red dominates the entire graph.
+
+
+Income Prediction 1.
+
+    1. Download marketing.data located here. This data set is described here.
+
+    2. How many lines are in the file? Hint: use the wc unix utility.
+
+	    wc -l marketingdata.txt
+	    8994 marketingdata.txt
+
+    3. Notice that many lines have some fields unavailable (NA). Remove any lines without complete data. Hint: use the grep unix utility. How many lines remain?
+
+	    grep -v NA marketingdata.txt > marketingdatap3.txt
+	    wc -l marketingdatap3.txt
+		6877 marketingdatap3.txt
+
+    4. The fifth column corresponds to education level. What is the most common education level?
+
+	    import numpy as np
+
+		# Read the txt file and arrange into array of arrays
+		data = np.loadtxt("marketingdatap3.txt")
+		# Set up dictionary to count
+		edu = {1.0:0, 2.0:0, 3.0:0, 4.0:0, 5.0:0, 6.0:0}
+
+		# Go through all the lines in the file
+		for n in range(len(data)):
+			# Get the 5th data point of each line
+			# Check against dictionary then iterate + 1
+			edu[data[n][4]] += 1
+
+		# Find which value is highest (most represented) by searching through the dictionary for the highest value.
+		print max(edu, key=edu.get)
+
+		4.0
+
+		According to the information, that corresponds to "1 to 3 years of college".
+
+    5. What is the income distribution for households with some graduate school? (hint: use a python dict data structure to store income level counts)
+
+		import numpy as np
+		import matplotlib.pyplot as pl
+
+		# Read the txt file and arrange into array of arrays
+		data = np.loadtxt("marketingdatap3.txt")
+		# Set up dictionary to count
+		inc = {1.0:0, 2.0:0, 3.0:0, 4.0:0, 5.0:0, 6.0:0, 7.0:0, 8.0:0, 9.0:0}
+
+		# Go through all the lines in the file
+		for n in range(len(data)):
+			# Check if they have done some grad school (6.0) on education (5th column of each line)
+			if data[n][4] == 6.0:
+				# Given that they are, get the 1st data point of that line (income)
+				# Check against dictionary then iterate + 1
+				inc[data[n][0]] += 1
+
+		# Show distribution
+		print inc
+
+		{1.0: 29, 2.0: 28, 3.0: 33, 4.0: 40, 5.0: 40, 6.0: 95, 7.0: 121, 8.0: 189, 9.0: 245}
+
+		This shows that income distribution for households with some graduate school typically earn along the higher end.
+
+		This can then be visualized.
+
+		# Plot distribution as bars
+		pl.bar(range(len(inc)), inc.values(), align='center')
+		pl.xticks(range(len(inc)), inc.keys())
+
+		pl.show()
+
+		Which very clearly shows that households with some graduate school typically earn along the higher end of the income spectrum.
