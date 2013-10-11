@@ -1,0 +1,69 @@
+Homework #2 [PDS Fall 2013]
+
+Practical Data Science, Fall 2013
+
+Homework 2: Manipulating and Visualizing Data in Python
+
+Directions: Please hand in all code used to solve the following questions, along with the answers themselves. You may work through solutions with your team, but please complete the final version yourself.
+
+Data understanding and visualization
+
+    Download survey_multiple_choice.tsv located here. (hint: use wget or curl to pull the remote data from the server to your computer) This data represents the answers to the multiple choice survey issued prior to the course. A brief description of this dataset is given here.  
+
+Use the unix command line or write Python scripts (script=little program) to answer the following questions.  Document how you arrived at the answer, as well as the answer.
+
+    1. How many students have completed the survey? Hint: use the wc unix utility.
+    2. How many students claim to have each skill level for the unix shell, databases, and programming, respectively?
+    3. Which discipline (unix, database, or programming) would you say has the highest overall skill level amongst the students responding to the survey? 4. Which discipline has the lowest?
+    5. Write a simple python program to read in this data, enabling you to look at the individual column values. (hint: look at the string split method to get at the data in the individual rows)
+    6. Using matplotlib, make a plot of the distribution of skill levels, starting from the lowest and going to the highest for each of the three disciplines. You may wish to substitute the strings describing the skill level with a numeric value.
+    7. Combine these three plots, overlaying them on a single graph. Make sure each line is a different color for each line, and make a legend to tell the different colors apart.
+    8. Repeat question 6 using a bar plot. 
+
+Income Prediction 2.
+
+This problem uses the income dataset from the prior homework, available here and described here. In this example, we’re going to build a simple predictive model for household income.
+
+    1. Consider the following simple model of income level using only education level.
+
+        Let 4 be the nominal income level, with the following adjustments in income level being made according to education:
+
+        education level        income modifier
+
+                1                        -3
+
+                2                        -1
+
+                3                        0
+
+                4                        +1
+
+                5                        +3
+
+                6                        +4
+
+        What is the total difference between actual and predicted income level using the above model? What about the average difference per user? (Hint: again use a dict data structure, this time to store the modifiers of the model)
+
+    2. Consider the following modification to the model presented in question 1 that additionally incorporates the following information about a person’s occupation:
+
+        occupation                income modifier
+
+                1                        +2.5
+
+                2                        +.6
+
+                3                        0
+
+                4                        +.2
+
+                5                        -.5
+
+                6                        -1.5
+
+                7                        +.3
+
+                8                        +.8
+
+                9                        -2.5
+
+        In this setting, we are using a two parameter model to estimate an individual’s income, according to both occupation and education level. What is the total difference between actual and predicted income level using the above model? What about the average difference per user?  Is this better or worse than the model presented in question 1? Is this model more likely to overestimate or underestimate an individual’s income level?
