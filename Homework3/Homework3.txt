@@ -1,0 +1,12 @@
+Practical Data Science, Fall 2013
+
+Homework 3: Dealing with Data
+
+Data Processing
+
+	1. Download the file user_tag_activity.json located here. This file is json formatted, listing labels (here called “responses”) applied by users (denoted by the “user” field) to certain documents (here called “objects”). Because users are imperfect, a particular label may be accepted or rejected after manual review (“accepted” field is 1 or 0 respectively). Here, the particular user user ids, labels and object identifiers have been scrambled to preserve privacy. Use python’s json library to read in the file. How many unique users are there? How many unique objects and responses?
+	2. Real data is often dirty- filter any tuples with NULL fields.
+	3. What are the 5 users with the highest rejection rate? What are the 5 users with the greatest number of rejections?
+	4. What are the 5 responses with the highest rejection rate? If we were to try to automate the rejection process by rejecting the these responses, how many good (accepted) tags would erroneously be rejected?
+	5. Similarly, some users may be more trustworthy than others. Find the 5 users with the greatest number of accepted responses. If one were to always accept responses from these users, how many “bad” tags would erroneously be accepted?
+	6. Use matplotlib to plot the distribution of user acceptance rates. 
