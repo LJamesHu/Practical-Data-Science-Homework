@@ -1,0 +1,35 @@
+You should use Python to answer all parts of this question, unless specifically indicated otherwise.
+
+You should write one Python script or notebook that clearly labels where each part of the problem is addressed.  The script should run for us and produce any requested output.
+
+If you’re not using an ipython notebook, You should turn in the Python script and an accompanying pdf document that presents any answers to questions, as well as parts of your solution that are not contained in the script (for example, a sorted list, a plot, etc.).
+
+Your data for this exercise are in data file assess1_data.json.  These data are a subset of data from a targeted marketing campaign.  The original data have hundreds of fields and hundreds of thousands of records; some other changes have been made as well.  Each data record describes a targeted consumer by various attributes.
+
+Follow all directions and answer all questions.  Be concise and precise
+
+in your answers:
+
+a) What is the structure of the file?  What are the attributes/fields? How many customers are there?  (Can be answered easily at the command line, without Python.)
+
+b) Read in the datafile into a Python program.  Do any two customers have the same name?  If so, list the duplicated name(s).
+
+c) Sometimes data values are missing and programs in the data processing pipeline fill in special values that can screw up analysis. How many rows have value -9999?  Do not consider them in any further processing.
+
+d) RFA_2F and RFA_2A are marketing codes summarizing the recency and frequency of historical customer response.  What values do they take and what is the frequency of each value in the data?  What values does WEALTH_INDEX take?
+
+e) TARGET_B describes whether this customer responded (1) or did not respond (0) to the campaign.  What proportion of the targeted consumers responded?
+
+f) Is there a difference in the distribution of the WEALTH_INDEX for the responders from the non-responders?  Explain.
+
+g) Plot the distributions of WEALTH_INDEX for the responders and non-responders on one graph to show the similarities and differences. Use a histogram.  What is the difference in the graphs from plotting percents versus counts on the y-axis?  (Hint: in the matplotlib "hist", look at "normed=True" and look at different numbers of "bins".)
+
+h) Alphabetize the records by the NAME field.  Number them from 1 at the beginning of the alphabet.  Do not print them all out.  Just print out alphabetized records 1-10 and alphabetized records 20,000-20,010.
+
+i) Redo part (h), except alphabetize by the individual's *last name*.
+
+j) Data such as this are used to evaluate predictive models. Consider predicting response with the following quantity: -40 + 0.8*WEALTH_INDEX + 0.12*RFA_2F
+
+Print the top-10 customer records, ordered by this quantity.  Include the value of this quantity.
+
+k) OPTIONAL (will not affect assessment): Suppose we had a budget to target only 10% of consumers. Can these data help us to understand whether the "predictive model" of part (j) would be helpful? How? (Is it helpful?)
